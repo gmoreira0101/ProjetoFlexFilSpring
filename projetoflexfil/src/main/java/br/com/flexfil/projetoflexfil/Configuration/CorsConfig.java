@@ -11,7 +11,7 @@ public class CorsConfig {
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
-            public void addCorsMappings(CorsRegistry registry) {
+            public void addCorsMappings(@SuppressWarnings("null") CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedOrigins("http://192.168.10.116:5500")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
