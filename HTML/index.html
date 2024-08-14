@@ -44,24 +44,27 @@
             </form>
         </tr>
         <tr>
-            <td>2</td>
-            <td>
-                <form id="form2" action="">
-                    <input type="number" id="prensado2" name="prensado2" required>
-            </td>
-            <td>
-                    <input type="number" id="cavidades2" name="cavidades2" required>
-            </td>
-            <td>
-                    <input type="number" id="pecas2" name="pecas2" required>
-            </td>
-            <td>
-                    <input type="text" id="idPeca2" name="idPeca2" required>
-            </td>
-            <td>
+            <form action="">
+                <td>
+                    <input type="hidden" class="numprensa" name="numeroPrensa" value="2">
+                    2
+                </td>
+                <td>
+                    <input type="number" class="nrprensada" name="nrprensada" required>
+                </td>
+                <td>
+                    <input type="number" class="nrcavidade" name="nrcavidade" required>
+                </td>
+                <td>
+                    <input type="number" class="nrpeca" name="nrpeca" required>
+                </td>
+                <td>
+                    <input type="text" class="idpeca" name="idpeca" required>
+                </td>
+                <td>
                     <button type="submit">Enviar</button>
-                </form>
-            </td>
+                </td>
+            </form>
         </tr>
         <tr>
             <td>3</td>
@@ -264,6 +267,6 @@
             </td>
         </tr>
     </table>
-
+    <button onclick="window.location.href='/Historico/historico.html'">Ver Histórico</button>
 </body>
 </html>
