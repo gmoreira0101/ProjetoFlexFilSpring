@@ -1,36 +1,78 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
 }
 
 h2 {
     text-align: center;
     margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+#searchInput {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 0 auto;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 12px;
-    text-align: center;
 }
 
 th {
-    background-color: #f4f4f4;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+    position: sticky;
+    top: 0; /* Fixa o cabeçalho no topo do contêiner da tabela */
+    z-index: 1; /* Garante que o cabeçalho fique acima das outras linhas */
 }
 
-tbody tr:nth-child(even) {
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-tbody tr:hover {
-    background-color: #f1f1f1;
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1f6391;
 }

@@ -1,21 +1,73 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
 }
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.table-container {
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    font-size: 12px; /* Diminui ainda mais o tamanho da fonte */
 }
-table, th, td {
-    border: 1px solid black;
+
+thead th {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 3px; /* Diminui o padding */
+    text-align: left;
+    font-size: 12px;
 }
-th, td {
-    padding: 10px;
+
+td {
+    padding: 3px; /* Diminui o padding */
+    border-bottom: 1px solid #ddd;
     text-align: center;
+    vertical-align: middle; /* Centraliza verticalmente os inputs */
 }
-th {
-    background-color: #f2f2f2;
+
+input {
+    width: 70%; /* Ajusta a largura dos inputs */
+    padding: 5px; /* Diminui o padding dos inputs */
+    font-size: 12px; /* Ajusta o tamanho da fonte dos inputs */
 }
-h2 {
-    text-align: center;
+
+tr {
+    height: 20px; /* Reduz a altura das linhas */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+button {
+    display: block;
+    margin: 15px auto;
+    padding: 8px 16px; /* Diminui o tamanho do botão */
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px; /* Diminui o tamanho da fonte do botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1f6391;
 }

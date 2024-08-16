@@ -7,89 +7,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <h2>Controle das Prensas Hidráulicas</h2>
-
-    <table>
-        <tr>
-            <th>Número da Prensa</th>
-            <th>Quantidade de Vezes que foi Prensado</th>
-            <th>Quantidade de Cavidades</th>
-            <th>Quantidade de Peças Feitas</th>
-            <th>ID da Peça</th>
-            <th>Ações</th>
-        </tr>
-        <tr>
-            <form id="formulario1">
-                <td>
-                    <input type="hidden" id="numprensa1" name="numeroPrensa" value="1">
-                    1
-                </td>
-                <td>
-                    <input type="number" id="nrprensada1" name="nrprensada" required>
-                </td>
-                <td>
-                    <input type="number" id="nrcavidade1" name="nrcavidade" required>
-                </td>
-                <td>
-                    <input type="number" id="nrpeca1" name="nrpeca" required>
-                </td>
-                <td>
-                    <input type="text" id="idpeca1" name="idpeca" required>
-                </td>
-                <td>
-                    <button type="button" onclick="cadastrar('formulario1')">Enviar</button>
-                </td>
-            </form>
-        </tr>
-        <tr>
-            <form id="formulario2">
-                <td>
-                    <input type="hidden" id="numprensa2" name="numeroPrensa" value="2">
-                    2
-                </td>
-                <td>
-                    <input type="number" id="nrprensada2" name="nrprensada" required>
-                </td>
-                <td>
-                    <input type="number" id="nrcavidade2" name="nrcavidade" required>
-                </td>
-                <td>
-                    <input type="number" id="nrpeca2" name="nrpeca" required>
-                </td>
-                <td>
-                    <input type="text" id="idpeca2" name="idpeca" required>
-                </td>
-                <td>
-                    <button type="button" onclick="cadastrar('formulario2')">Enviar</button>
-                </td>
-            </form>
-        </tr>
-        <tr>
-            <form id="formulario3">
-                <td>
-                    <input type="hidden" id="numprensa3" name="numeroPrensa" value="2">
-                    2
-                </td>
-                <td>
-                    <input type="number" id="nrprensada3" name="nrprensada" required>
-                </td>
-                <td>
-                    <input type="number" id="nrcavidade3" name="nrcavidade" required>
-                </td>
-                <td>
-                    <input type="number" id="nrpeca3" name="nrpeca" required>
-                </td>
-                <td>
-                    <input type="text" id="idpeca3" name="idpeca" required>
-                </td>
-                <td>
-                    <button type="button" onclick="cadastrar('formulario3')">Enviar</button>
-                </td>
-            </form>
-        </tr>
-    </table>
-    <button onclick="window.location.href='/Historico/historico.html'">Ver Histórico</button>
-    <script src="script.js" defer=""></script>            
+    
+    <form id="mainForm">
+        <table>
+            <thead>
+                <tr>
+                    <th>Número da Prensa</th>
+                    <th>Quantidade de Vezes que foi Prensado</th>
+                    <th>Quantidade de Cavidades</th>
+                    <th>Quantidade de Peças Feitas</th>
+                    <th>ID da Peça</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Gerado dinamicamente pelo JavaScript -->
+            </tbody>
+        </table>
+    </form>
+    <button id="historicoButton">Ver Histórico</button>
+    
+    <script src="script.js" defer></script>            
 </body>
 </html>

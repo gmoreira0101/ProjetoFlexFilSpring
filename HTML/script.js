@@ -1,53 +1,83 @@
-function cadastrar(formularioId) {
-    const formulario = document.getElementById(formularioId);
-    console.log(formulario);
-    if (!formulario) {
-        console.error(`Formulário com ID ${formularioId} não encontrado.`);
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("mainForm");
+    const tableBody = form.querySelector("tbody");
+
+    // Função para criar uma linha na tabela
+    function createRow(index) {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${index}</td>
+            <td><input type="number" name="nrprensada${index}" required></td>
+            <td><input type="number" name="nrcavidade${index}" required></td>
+            <td><input type="number" name="nrpeca${index}" required></td>
+            <td><input type="text" name="idpeca${index}" required></td>
+            <td><button type="button" onclick="cadastrar(${index})">Enviar</button></td>
+        `;
+        tableBody.appendChild(row);
+    }
+
+    // Criação de 3 linhas para o exemplo
+    for (let i = 1; i <= 12; i++) {
+        createRow(i);
+    }
+
+    // Botão para visualizar histórico
+    const historicoButton = document.getElementById("historicoButton");
+    historicoButton.addEventListener("click", () => {
+        window.location.href = './Historico/historico.html';
+    });
+});
+
+// Função para cadastrar dados
+function cadastrar(index) {
+    const form = document.getElementById("mainForm");
+    const nrprensada = form.querySelector(`input[name="nrprensada${index}"]`);
+    const nrcavidade = form.querySelector(`input[name="nrcavidade${index}"]`);
+    const nrpeca = form.querySelector(`input[name="nrpeca${index}"]`);
+    const idpeca = form.querySelector(`input[name="idpeca${index}"]`);
+    const button = form.querySelector(`button[onclick="cadastrar(${index})"]`);
+
+    // Validação básica dos dados
+    if (!nrprensada.value || !nrcavidade.value || !nrpeca.value || !idpeca.value) {
+        alert("Por favor, preencha todos os campos.");
         return;
     }
 
-    const Inrprensa = formulario.querySelector('input[name="numeroPrensa"]:not([type="hidden"])');
-    console.log("Inrprensa encontrado:", Inrprensa!== null);
-
-    const Inrprensada = formulario.querySelector('input[name="nrprensada"]');
-    console.log("Inrprensada encontrado:", Inrprensada !== null);
-
-    const Inrcavidade = formulario.querySelector('input[name="nrcavidade"]');
-    console.log("Inrcavidade encontrado:", Inrcavidade !== null);
-
-    const Iidpeca = formulario.querySelector('input[name="idpeca"]');
-    console.log("Iidpeca encontrado:", Iidpeca !== null);
-
-    const Inrpeca = formulario.querySelector('input[name="nrpeca"]');
-    console.log("Inrpeca encontrado:", Inrpeca !== null);
-
-    if (!Inrprensa || !Inrprensada || !Inrcavidade || !Iidpeca || !Inrpeca) {
-        console.error("Um ou mais campos do formulário não foram encontrados.");
-        return;
-    }
+    // Desabilita o botão para evitar cliques duplos
+    button.disabled = true;
 
     const hoje = new Date().toISOString().split('T')[0];
 
     fetch("http://localhost:8080/cadastrar", {
+        method: "POST",
         headers: {
-            'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        method: "POST",
         body: JSON.stringify({
-            numPrensa: Inrprensa.value,
-            prensadas: Inrprensada.value,
-            numCavidade: Inrcavidade.value,
-            numPecas: Inrpeca.value,
-            idPeca: Iidpeca.value,
+            numPrensa: index,
+            prensadas: nrprensada.value,
+            numCavidade: nrcavidade.value,
+            numPecas: nrpeca.value,
+            idPeca: idpeca.value,
             data: hoje
         })
     })
-    .then(function (res) { 
-        console.log(res);
-        limpar(formulario); 
+    .then(response => response.ok ? response.json() : Promise.reject('Erro ao cadastrar os dados.'))
+    .then(data => {
+        console.log('Dados cadastrados com sucesso:', data);
+        alert("Dados cadastrados com sucesso!");
+        // Limpa os campos do formulário
+        nrprensada.value = '';
+        nrcavidade.value = '';
+        nrpeca.value = '';
+        idpeca.value = '';
     })
-    .catch(function (res) { 
-        console.log(res); 
+    .catch(error => {
+        console.error('Erro:', error);
+        alert("Ocorreu um erro ao cadastrar os dados. Por favor, tente novamente.");
+    })
+    .finally(() => {
+        button.disabled = false; // Habilita o botão após a requisição
     });
 }
