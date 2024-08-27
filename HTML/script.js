@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const row = document.createElement("tr");
 
         row.innerHTML = `
+            <td><input type="text" name="idpeca${index}" required></td>
             <td>${index}</td>
             <td><input type="number" name="nrprensada${index}" required></td>
             <td><input type="number" name="nrcavidade${index}" required></td>
             <td><input type="number" name="nrpeca${index}" required></td>
-            <td><input type="text" name="idpeca${index}" required></td>
             <td><button type="button" onclick="cadastrar(${index})">Enviar</button></td>
         `;
         tableBody.appendChild(row);
@@ -47,7 +47,7 @@ function cadastrar(index) {
     // Desabilita o botão para evitar cliques duplos
     button.disabled = true;
 
-    const hoje = new Date().toISOString().split('T')[0];
+    const hoje = new Date().toLocaleDateString('sv-SE', { timeZone: 'America/Sao_Paulo' });
 
     fetch("http://localhost:8080/cadastrar", {
         method: "POST",

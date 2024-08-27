@@ -18,37 +18,39 @@ h2 {
     border-radius: 4px;
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Ajuste a largura conforme necessário */
+    margin: 0 auto; /* Centraliza a tabela na página */
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 12px; /* Diminui ainda mais o tamanho da fonte */
+    font-size: 12px;
 }
 
 thead th {
     background-color: #2c3e50;
     color: #fff;
-    padding: 3px; /* Diminui o padding */
+    padding: 8px; /* Aumentei o padding para melhor espaçamento */
     text-align: left;
     font-size: 12px;
 }
 
 td {
-    padding: 3px; /* Diminui o padding */
+    padding: 5px; /* Aumentei o padding para melhor espaçamento */
     border-bottom: 1px solid #ddd;
     text-align: center;
-    vertical-align: middle; /* Centraliza verticalmente os inputs */
+    vertical-align: middle;
 }
 
 input {
-    width: 70%; /* Ajusta a largura dos inputs */
-    padding: 5px; /* Diminui o padding dos inputs */
-    font-size: 12px; /* Ajusta o tamanho da fonte dos inputs */
+    width: 90%; /* Ajuste a largura conforme necessário */
+    padding: 5px;
+    font-size: 12px;
 }
 
 tr {
-    height: 20px; /* Reduz a altura das linhas */
+    height: 40px; /* Aumentei a altura das linhas para melhor espaçamento */
 }
 
 tr:nth-child(even) {
@@ -58,12 +60,12 @@ tr:nth-child(even) {
 button {
     display: block;
     margin: 15px auto;
-    padding: 8px 16px; /* Diminui o tamanho do botão */
+    padding: 8px 16px;
     background-color: #2980b9;
     color: #fff;
     border: none;
     border-radius: 4px;
-    font-size: 14px; /* Diminui o tamanho da fonte do botão */
+    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }

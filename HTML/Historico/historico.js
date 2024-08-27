@@ -33,16 +33,21 @@ function renderTable(data, tableBody) {
         tableBody.innerHTML = '<tr><td colspan="6">Nenhum dado disponível</td></tr>';
         return;
     }
+    data.sort((a, b)=> {
+        const dataA = new Date(a.data);
+        const dataB = new Date(b.data);
+        return dataB - dataA;
+    })
     data.forEach(prensa => {
         const row = document.createElement("tr");
 
         row.innerHTML = `
+            <td>${formatDate(prensa.data) || 'N/A'}</td>
+            <td>${prensa.idPeca || 'N/A'}</td>
             <td>${prensa.numPrensa || 'N/A'}</td>
             <td>${prensa.prensadas || 'N/A'}</td>
             <td>${prensa.numCavidade || 'N/A'}</td>
             <td>${prensa.numPecas || 'N/A'}</td>
-            <td>${prensa.idPeca || 'N/A'}</td>
-            <td>${formatDate(prensa.data) || 'N/A'}</td>
         `;
 
         tableBody.appendChild(row);
